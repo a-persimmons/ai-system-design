@@ -77,7 +77,7 @@ RAG 是当今人工智能产品最流行的架构。 ChatGPT 搜索、Perplexity
 
 ## 分块策略 {#chunking-strategies}
 
-我们将文件切割成文本块的方式决定了RAG的质量。 **文本块** 是我们从较大文档中剪切出来的一小段文本。我们有一篇关于 RAG](https://outcomeschool.com/blog/chunking-strategies-for-rag) 的 [CChunking 策略的详细博客，其中通过示例解释了每个策略。
+文档如何切分为文本块，决定了 RAG 的质量。**文本块（chunk）** 是从较大文档中切出的一小段文本。详细文章 [RAG 的分块策略](https://outcomeschool.com/blog/chunking-strategies-for-rag) 通过实例解释各种策略。
 
 如果文本块太大，LLM 会产生太多噪音。如果文本块太小，我们就会失去上下文，并且文本块本身没有意义。
 

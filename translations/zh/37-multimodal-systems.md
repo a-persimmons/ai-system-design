@@ -83,29 +83,29 @@
 - **就近部署.** 将协调器、STT、LLM 和 TTS 保持在同一数据中心。它们之间的每个网络跃点都会增加 10 到 50 毫秒。
 - **热连接。** 保持与通话开始前已打开的 STT 和 TTS 连接。
 - **预生成问候语。** 第一行始终相同，因此我们缓存其音频并立即播放。
-- **Fillers 赢得了时间。** 快速的“当然，让我检查一下”让 2 秒的工具调用感觉很好。
+- **过渡短语可以争取时间。** 先说一句“好的，我来查一下”，就能让耗时 2 秒的工具调用显得更自然。
 
-我们有一篇关于 [如何为语音 AI 智能体建立延迟预算？](https://outcomeschool.com/blog/voice-agent-latency-budget) 的详细博客，其中解释了如何选择目标，将其划分到每个阶段，测量 p50 和 p95 的实际数字，并首先减少最大延迟。
+详细文章 [如何为语音 AI 智能体制定延迟预算？](https://outcomeschool.com/blog/voice-agent-latency-budget) 介绍如何选择目标，将预算分配到各个阶段，测量实际的 p50 和 p95 延迟，并优先缩短延迟最大的环节。
 
-我们有一篇关于 [的详细博客如何测量语音智能体的语音到语音延迟？](https://outcomeschool.com/blog/voice-to-voice-latency) 解释了如何通过两通道通话录音正确测量该数字，并在多次通话中以 p50 和 p95 跟踪它。
+详细文章 [如何测量语音智能体的语音到语音延迟？](https://outcomeschool.com/blog/voice-to-voice-latency) 介绍如何通过双通道通话录音正确测量这一指标，并在多次通话中跟踪 p50 和 p95。
 
-我们在 [上有一篇详细的博客，为什么首次发出音频的时间比总响应时间更重要？](https://outcomeschool.com/blog/time-to-first-audio) 解释了为什么用户只感觉到第一个声音之前的沉默，以及流媒体如何隐藏收听时间内的其余回复。
+详细文章 [为什么首段音频延迟比总响应时间更重要？](https://outcomeschool.com/blog/time-to-first-audio) 解释用户为何主要感受到第一个声音出现前的静默，以及流式处理如何将后续响应的生成时间隐藏在用户收听过程中。
 
-我们有一篇关于 [的详细博客，句子分块如何更快地将 LLM 输出馈送到 TTS？](https://outcomeschool.com/blog/sentence-chunking-for-tts)，其中解释了智能体如何将流式传输的 token 分割成句子，并在 LLM 仍在写作时将每个句子发送到 TTS。
+详细文章 [按句分块如何更快地将 LLM 输出送入 TTS？](https://outcomeschool.com/blog/sentence-chunking-for-tts) 解释智能体如何将流式 token 划分成句子，并在 LLM 继续生成时将每句话送入 TTS。
 
-我们在 [上有一篇详细的博客，TTS 模型如何在完整句子到达之前开始说话？](https://outcomeschool.com/blog/streaming-tts) 解释了如何对几个单词进行少量前瞻，以及同时读取文本和说话的较新模型如何让 TTS 尽早开始说话，同时听起来仍然很自然。
+详细文章 [TTS 如何在完整句子到达前开始说话？](https://outcomeschool.com/blog/streaming-tts) 介绍只预读几个词的方法，以及能够同时读取文本并生成语音的新模型。这些方法让 TTS 提前开始输出，同时保持自然的语音效果。
 
-我们有一篇关于 [的详细博客，推测性 LLM 生成如何在用户完成之前开始回复？](https://outcomeschool.com/blog/speculative-generation-in-voice-agents) 解释了智能体如何在回合结束确认之前将用户的单词发送到 LLM，将回复隐藏在缓冲区中，并且仅在最终单词匹配时才播放，因此LLM 时间隐藏在寂静的等待中。
+详细文章 [推测性 LLM 生成如何在用户说完前开始准备回复？](https://outcomeschool.com/blog/speculative-generation-in-voice-agents) 解释智能体如何在确认用户轮次结束前就将其话语发送给 LLM，把生成的回复暂存在缓冲区中，仅当最终输入吻合时才播放，从而把 LLM 的计算时间隐藏在静默等待时间内。
 
-我们有一篇关于 [填充短语如何隐藏语音智能体中的延迟的详细博客？](https://outcomeschool.com/blog/filler-phrases-in-voice-agents) 解释了智能体在工具调用运行时何时会说“让我为您检查一下”之类的短行、生成它的方法以及如何将其保留在对话历史记录中。
+详细文章 [过渡短语如何掩盖语音智能体的延迟？](https://outcomeschool.com/blog/filler-phrases-in-voice-agents) 介绍何时在工具调用期间说一句“我帮你查一下”、如何生成这类话语，以及如何将其保留在对话历史中。
 
-我们有一篇关于 [的详细博客，语音智能体如何隐藏慢速工具调用的延迟？](https://outcomeschool.com/blog/slow-tool-calls-in-voice-agents) 解释了智能体如何立即说出简短的台词，在长时间等待期间提供进度更新，在工具在后台运行时保持通话，提前启动只读工具以及处理超时。
+详细文章 [语音智能体如何掩盖慢速工具调用的延迟？](https://outcomeschool.com/blog/slow-tool-calls-in-voice-agents) 解释如何立即给出简短回应，在较长等待期间报告进展，在工具后台运行时继续交谈，提前启动只读工具，以及处理超时。
 
 其他特定于语音的问题：
 
-- **语音活动检测 (VAD)：** 了解用户何时停止说话，以便模型可以开始思考。我们有一篇关于语音 AI 智能体](https://outcomeschool.com/blog/what-is-turn-taking-in-a-voice-ai-agent) 中的 [转弯的详细博客，其中解释了转弯结束检测、语义转弯检测和反向通道。我们有一篇关于 [的详细博客，端点如何决定用户何时结束讲话？](https://outcomeschool.com/blog/endpointing-in-voice-agents) 解释了静音计时器、基于单词和基于语音的转弯检测器，以及智能体如何将它们结合起来快速回复而不打断用户。我们有一篇关于 [基于静音和基于模型的转弯检测有何不同？](https://outcomeschool.com/blog/silence-vs-model-based-turn-detection) 的详细博客，解释了固定静音超时失败的原因，以及转弯检测模型如何读取单词和声音来决定用户何时完成。我们有一篇关于 [动态端点如何适应用户说话速度的详细博客？](https://outcomeschool.com/blog/dynamic-endpointing) 解释了智能体如何学习每个用户的正常停顿并将其转化为等待时间，以便快速说话的人得到快速回复，而慢速说话的人不会被打断。我们有一篇关于 [的详细博客，语音智能体如何处理用户思考时的长时间停顿？](https://outcomeschool.com/blog/long-pauses-in-voice-agents) 解释了智能体如何使用单词、语气和灵活的等待时间来等待思考停顿，以及当用户长时间保持沉默时它如何轻轻地检查。我们有一篇关于 [的详细博客，语音智能体如何知道电话号码或电子邮件尚未完成？](https://outcomeschool.com/blog/unfinished-input-in-voice-agents) 解释了智能体如何使用它刚刚提出的问题、检查值是否看起来完整，以及在用户以小组形式读出电话号码或电子邮件时继续监听的轮流检测模型。我们有一篇关于 [为什么语音智能体会在句子中打断人们的话？](https://outcomeschool.com/blog/voice-agents-cutting-users-off) 的博客，解释了为什么静音计时器将句子中的暂停错误地视为回合结束，为什么简单地等待更长的时间会使智能体变慢，以及语义回合检测和打断处理如何修复它。
-- **中断处理 (打断):** 当用户在智能体完成之前开始讲话时会发生什么情况。我们必须取消 LLM 和 TTS 流，告诉客户端删除已缓冲但尚未播放的音频，并将智能体历史记录中的最后一个回合剪切为仅用户实际听到的单词。否则，在下一个回合中，LLM 会认为用户听到了他们从未听过的东西。我们有一篇关于语音 AI 智能体](https://outcomeschool.com/blog/what-is-barge-in-in-a-voice-ai-agent) 中的 [插入的详细博客，其中解释了回声消除、错误插入以及智能体如何检测真正的中断。我们有一篇关于 [的详细博客，语音智能体如何辨别咳嗽或背景噪音的真正干扰？](https://outcomeschool.com/blog/interruption-vs-background-noise)，解释了噪音抑制、语音活动检测、最短语音时间和单词检查如何阻止咳嗽和背景声音切断智能体。我们有一篇关于 [的详细博客什么是反向通道，为什么“mm-hmm”不应该阻止智能体？](https://outcomeschool.com/blog/backchannels-in-voice-agents) 解释了为什么像“mm-hmm”和“好的”这样的短音意味着“继续”，以及智能体如何使用长度、单词、语气和声音的时间来继续通过它们说话。我们有一篇关于 [的详细博客，语音智能体如何在被打断时立即停止说话？](https://outcomeschool.com/blog/stopping-speech-on-interruption) 解释了智能体如何清除其音频等待的每个位置，从设备到服务器，取消 TTS 和 LLM，忽略带有回复编号的迟到音频，并仅保存用户实际回复的部分听到了。我们有一篇关于 [为什么 TTS 音频缓冲会使中断变慢？](https://outcomeschool.com/blog/tts-audio-buffering) 的详细博客，解释了为什么比实时创建得更快的音频会堆积在缓冲区中，以及节奏如何在设备上仅保留少量音频，以便智能体可以快速停止。我们有一篇关于 [的详细博客，语音智能体如何将其内存截断为仅用户实际听到的内容？](https://outcomeschool.com/blog/truncating-context-on-interruption) 解释了智能体如何测量播放了多少音频，将时间转换为带有单词时间戳的单词，并剪切其保存的回复以匹配。我们有一篇关于 [语音智能体如何从错误中断中恢复？](https://outcomeschool.com/blog/false-interruption-recovery) 的详细博客，解释了智能体如何暂停而不是停止，等待一小段时间以检查用户是否真的说话，然后从暂停的地方继续回复。我们有一篇关于 [的详细博客，语音智能体如何处理用户和智能体同时说话？](https://outcomeschool.com/blog/overlapping-speech-in-voice-agents) 解释了智能体如何在说话时保持监听，通过回声消除消除自己的声音，决定用户的声音是中断、反向通道还是噪音，然后继续说话或停止，将轮到用户。
-- **Diarization：** 了解多人通话中哪个发言者说了些什么。
+- **语音活动检测（VAD）：** 判断用户何时停止说话，让模型开始思考。详细文章 [语音 AI 智能体的轮次交替](https://outcomeschool.com/blog/what-is-turn-taking-in-a-voice-ai-agent) 介绍轮次结束检测、语义轮次检测和附和反馈。[端点检测如何判断用户已经说完？](https://outcomeschool.com/blog/endpointing-in-voice-agents) 介绍静默计时器、基于词语和基于声音的轮次检测器，以及如何组合它们，在快速回复的同时避免打断用户。[基于静默与基于模型的轮次检测有何不同？](https://outcomeschool.com/blog/silence-vs-model-based-turn-detection) 解释固定静默超时为何会失效，以及轮次检测模型如何结合词语和声音判断用户是否说完。[动态端点检测如何适应用户语速？](https://outcomeschool.com/blog/dynamic-endpointing) 解释如何学习每位用户的正常停顿并据此调整等待时间，让快语速用户及时获得回答，也不打断慢语速用户。[语音智能体如何处理用户思考时的长停顿？](https://outcomeschool.com/blog/long-pauses-in-voice-agents) 介绍如何结合词语、语气和灵活的等待时间，留出思考空间，并在用户长时间沉默时温和询问。[语音智能体如何判断电话号码或邮箱还没说完？](https://outcomeschool.com/blog/unfinished-input-in-voice-agents) 介绍如何结合刚提出的问题、输入完整性检查和轮次检测模型，在用户分组读出号码或邮箱时继续倾听。[为什么语音智能体会在用户说到一半时打断？](https://outcomeschool.com/blog/voice-agents-cutting-users-off) 解释静默计时器为何把句中停顿误判为轮次结束、单纯延长等待为何会拖慢响应，以及语义轮次检测和打断处理如何解决问题。
+- **打断处理（barge-in）：** 处理智能体还没说完、用户就开始讲话的情况。此时必须取消 LLM 和 TTS 流，让客户端丢弃已缓存但尚未播放的音频，并将历史记录中智能体的最后一轮回复截断到用户实际听见的词语。否则，下一轮的 LLM 会误以为用户已经听过尚未播放的内容。详细文章 [语音 AI 智能体中的打断](https://outcomeschool.com/blog/what-is-barge-in-in-a-voice-ai-agent) 介绍回声消除、误打断与真正打断的检测。[如何区分真实打断、咳嗽和背景噪声？](https://outcomeschool.com/blog/interruption-vs-background-noise) 解释如何结合降噪、语音活动检测、最短语音时长和词语检查，避免咳嗽或背景声打断智能体。[什么是附和反馈，为什么“嗯哼”不应让智能体停下？](https://outcomeschool.com/blog/backchannels-in-voice-agents) 解释“嗯哼”“好的”等短声为何表示“请继续”，以及如何根据时长、词语、语气和出现时机，在这些反馈中继续说话。[语音智能体如何在被打断时立即停止说话？](https://outcomeschool.com/blog/stopping-speech-on-interruption) 介绍如何清空设备到服务器各处等待播放的音频，取消 TTS 和 LLM，通过回复编号忽略迟到音频，并只保存用户真正听到的回复。[为什么 TTS 音频缓冲会拖慢打断响应？](https://outcomeschool.com/blog/tts-audio-buffering) 解释生成速度超过实时播放速度时音频为何积压，以及如何控制生成和发送节奏，使设备只保留少量音频，以便迅速停止。[语音智能体如何将记忆截断为用户实际听到的内容？](https://outcomeschool.com/blog/truncating-context-on-interruption) 介绍如何测量已播放时长，利用词级时间戳映射到词语，并据此裁剪保存的回复。[语音智能体如何从误打断中恢复？](https://outcomeschool.com/blog/false-interruption-recovery) 解释如何先暂停而非彻底停止，短暂等待以确认用户是否真的开口，再从暂停处继续回复。[语音智能体如何处理双方同时讲话？](https://outcomeschool.com/blog/overlapping-speech-in-voice-agents) 介绍如何边说边听，通过回声消除去掉自身声音，判断用户发声属于打断、附和还是噪声，再决定继续说话或停止并把发言机会交给用户。
+- **说话人分离（Diarization）：** 在多人通话中确定每位说话人说了什么。
 - **噪声和口音稳健性：** STT 质量在嘈杂环境和非标准口音中快速下降。
 
 构建语音智能体有两种主要方法： **级联管道** （STT -> LLM -> TTS）和单个 **语音到语音** 模型，该模型接收音频并输出音频。让我将主要差异制成表格，以便您更好地理解。

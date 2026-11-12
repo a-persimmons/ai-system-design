@@ -71,7 +71,7 @@
 
 目标位于顶部。 LLM 会查看它并决定两件事之一 - 循环接下来应该调用哪个工具，或者直接决定最终答案。当 LLM 选择一个工具时，循环会运行该工具并生成一个观察结果，该观察结果会反馈到 LLM。然后 LLM 再次做出决定。 LLM、工具和观察之间的这个小循环持续运行，直到 LLM 确定目标已实现并返回最终答案。
 
-该循环也称为 [**智能体循环**](https://outcomeschool.com/blog/ai-agent-loop)（思考、行动、观察循环），运行该循环的 LLM 周围的代码称为 **Harness** 。我们在 AI](https://outcomeschool.com/blog/harness-engineering-in-ai) 中有一篇关于 [Harness Engineering 的详细博客，深入解释了 Harness。
+这个循环也称为 [**智能体循环（agent loop）**](https://outcomeschool.com/blog/ai-agent-loop)，即思考、行动、观察的循环。围绕 LLM、负责运行这一循环的代码称为 **Harness**。详细文章 [AI 中的 Harness 工程](https://outcomeschool.com/blog/harness-engineering-in-ai) 对它作了深入讲解。
 
 AI 智能体的整个骨架在 Python 中看起来像这样：
 

@@ -16,7 +16,10 @@ for(const c of chapters){
   const zh=await fs.readFile(path.join(root,'translations/zh',`${c.id}.md`),'utf8');
   const tokens=markdown.parse(zh,{});
   assert.equal(tokens.filter(t=>t.type==='table_open').length,markdown.parse(original,{}).filter(t=>t.type==='table_open').length,`Table structure changed: ${c.id}`);
-  for(const token of tokens)for(const child of token.children??[])assert(!(child.type==='text'&&child.content.includes('**')),`Unrendered bold in ${c.id}`);
+  for(const token of tokens)for(const child of token.children??[])if(child.type==='text'){
+    assert(!child.content.includes('**'),`Unrendered bold in ${c.id}`);
+    assert(!child.content.includes(']('),`Malformed Markdown link in ${c.id}`);
+  }
   assert.deepEqual(fences(zh),fences(original),`Code/diagram changed: ${c.id}`);
   assert.equal(zh.trim().split('\n').length,original.trim().split('\n').length,`Source-line coverage changed: ${c.id}`);
   const required=manifest.headings.filter(h=>h.line>=c.start&&h.line<c.end);
