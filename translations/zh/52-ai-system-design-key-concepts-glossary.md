@@ -1,0 +1,68 @@
+# 关键概念术语表 {#ai-system-design-key-concepts-glossary}
+
+- **[AI 系统设计](#what-is-ai-system-design):** AI 系统设计是围绕人工智能模型（尤其是 LLM）设计完整系统的学科，以便它能够以快速、廉价、可靠、安全和可测量的方式为真实用户服务。
+- **[Token](https://outcomeschool.com/blog/bpe-in-llms):** token 是 LLM 读取和写入的一小段文本。一个token大约是4个英文字符。
+- **[Inference](https://outcomeschool.com/blog/llm-inference-optimization):** 推理是使用经过训练的模型为新输入生成输出的过程。
+- **推理服务器:** 推理服务器是一种特殊的服务器，它将 LLM 加载到 GPU 内存中并服务于预测请求。
+- **[vLLM](https://outcomeschool.com/blog/how-does-vllm-work):** vLLM 是一个用于服务 LLM 的高吞吐量引擎，旨在通过非常高效地管理 KV 缓存内存来在 GPU 上服务尽可能多的请求。
+- **[SGLang](https://outcomeschool.com/blog/how-does-sglang-work):** SGLang 是一个快速的 LLM 服务引擎，特别适合多轮聊天、结构化输出和 RAG，因为它在请求之间重用共享前缀的 KV 缓存。
+- **[TensorRT-LLM](https://outcomeschool.com/blog/how-does-tensorrt-llm-work):** TensorRT-LLM 是 NVIDIA 自己的引擎，当运行大语言模型时，它可以从 NVIDIA GPU 中挤出尽可能高的速度。
+- **[LPU](https://outcomeschool.com/blog/how-does-an-lpu-work):** LPU 是一种专为单个作业而构建的芯片，运行已经经过训练的大语言模型，并尽可能快地生成文本。
+- **TTFT (首 token 延迟):** TTFT 是从发送提示词到接收第一个 token 的时间。
+- **TPOT (每个输出 token 的耗时):** TPOT 是在第一个输出之后产生每个输出 token 所需的时间。
+- **[Prefill](https://outcomeschool.com/blog/prefill-vs-decode-llm-inference-optimization):** 预填充是模型单次读取和处理整个输入提示词并生成第一个输出 token 的阶段。
+- **[Decode](https://outcomeschool.com/blog/prefill-vs-decode-llm-inference-optimization):** 解码是模型一次生成一个输出 token 的阶段，重用预填充准备的 KV 缓存。
+- **[Prefill-解码分解](https://outcomeschool.com/blog/prefill-decode-disaggregation):** 预填充与解码分离是在不同的GPU 上运行预填充阶段和解码阶段的技术，这样它们就不会争夺相同的硬件。
+- **张量并行:** 张量并行将一个模型的权重矩阵拆分到多个 GPU 上，因此不适合单个 GPU 的模型仍然可以运行。
+- **[KV Cache](https://outcomeschool.com/blog/kv-cache-in-llms):** KV 缓存是所有先前 token 的存储键和值，计算一次并在以后的每个步骤中重用，因此模型不会重做相同的工作。
+- **[Paged Attention](https://outcomeschool.com/blog/paged-attention-in-llms):** 分页注意力是一种通过将 KV 缓存内存分成称为页面的固定大小的小块来更有效地管理 KV 缓存内存的技术。
+- **[KV 缓存压缩](https://outcomeschool.com/blog/kv-cache-compression):** KV 缓存压缩是一组技术，可以使 KV 缓存更小，同时保持模型输出的质量几乎相同。
+- **[提示缓存](https://outcomeschool.com/blog/how-does-prompt-caching-work):** 提示词缓存是一种模型保存其已为提示词的重复部分完成的工作的技术，以便下次可以重用已保存的工作。
+- **[语义缓存](https://outcomeschool.com/blog/how-does-semantic-caching-work):** 语义缓存是一个缓存，它根据问题的含义而不是确切的单词来匹配问题。
+- **[嵌入缓存](https://outcomeschool.com/blog/how-does-an-embedding-cache-work):** 嵌入缓存将一段文本的嵌入向量存储在根据文本加上模型名称和版本构建的键下，因此我们永远不会两次计算相同的嵌入向量。
+- **[LLM 路由](https://outcomeschool.com/blog/llm-routing):** LLM 路由是为每个用户查询选择正确的 LLM 的做法，而不是将每个查询发送到同一个 LLM。
+- **[Embedding](https://outcomeschool.com/blog/what-are-embeddings):** 嵌入向量是一个数字列表，用于捕获一段文本的含义，以便将相似的内容紧密结合在一起。
+- **[向量数据库](https://outcomeschool.com/blog/how-does-a-vector-database-work):** 向量数据库是一个数据库，用于存储嵌入向量并快速找到与给定查询最相似的数据库。
+- **[ANN 搜索](https://outcomeschool.com/blog/how-does-approximate-nearest-neighbor-ann-search-work):** 近似最近邻搜索可查找几乎肯定最接近查询的向量，而无需将其与每个存储的向量进行比较。
+- **[RAG (检索增强生成)](https://outcomeschool.com/blog/how-does-hyde-work):** RAG 是一种使用我们自己的文档而不是仅使用它已知的知识来制作 AI 模型答案的方法。
+- **[Chunk](https://outcomeschool.com/blog/chunking-strategies-for-rag):** 文本块是我们从较大文档中剪切出来的一小段文本。
+- **[混合搜索](https://outcomeschool.com/blog/how-does-hybrid-search-work):** 混合搜索是一种将关键词搜索和语义搜索相结合的技术，并将其结果合并到一个最终排名列表中。
+- **[HyDE](https://outcomeschool.com/blog/how-does-hyde-work):** HyDE 是一种技术，我们首先要求模型为问题编写一个假答案，然后我们使用该假答案而不是问题进行搜索。
+- **[Reranker](https://outcomeschool.com/blog/how-does-a-reranker-work):** 重排序模型是一个模型，它获取文档列表并对它们重新排序，将与给定问题最相关的文档放在顶部。
+- **[ColBERT](https://outcomeschool.com/blog/decoding-colbert):** ColBERT 是一种检索方法，它为每个 token 保留一个向量，并通过廉价的后期交互步骤来匹配查询和文档。
+- **[Agentic RAG](https://outcomeschool.com/blog/agentic-rag):** Agentic RAG 是由 AI 智能体驱动检索过程的系统。
+- **[GraphRAG](https://outcomeschool.com/blog/graphrag):** GraphRAG 是知识图谱之上的 RAG，因此我们可以检索关系，而不仅仅是文本块。
+- **[无向量 RAG](https://outcomeschool.com/blog/vectorless-rag):** 无向量 RAG 无需嵌入向量或向量数据库即可检索，其中 LLM 会导航文档结构以查找答案。
+- **[上下文工程](https://outcomeschool.com/blog/context-engineering):** 上下文工程是设计、组织和管理进入 LLM 上下文窗口的所有内容的实践，以便模型能够可靠地完成其任务。
+- **[Context Compaction](https://outcomeschool.com/blog/how-does-context-compaction-work):** 上下文压缩是将旧对话缩小为简短摘要的技术，因此在上下文窗口再次获得空间时，重要事实会保留下来。
+- **[迷失在中间](https://outcomeschool.com/blog/lost-in-the-middle-problem-in-llms):** 中间信息遗失是模型很好地使用长上下文的开头和结尾，而忽略中间内容的行为。
+- **[token 流式传输](https://outcomeschool.com/blog/how-does-token-streaming-work):** token 流式传输在模型生成后立即将每个 token 发送给用户，而不是等待完整响应。
+- **AI 网关：** AI 网关是专门针对 LLM 流量的反向代理，是公司中每个 LLM 呼叫流经的单点。
+- **[AI Agent](https://outcomeschool.com/blog/ai-agent):** AI 智能体 = LLM + 指令 + 工具 + 内存 + 运行直至实现目标的循环。
+- **[AI 智能体 Loop](https://outcomeschool.com/blog/ai-agent-loop):** AI 智能体循环是智能体重复思考、行动、观察的循环，直到任务完成。
+- **[Harness](https://outcomeschool.com/blog/harness-engineering-in-ai):** Harness 是 LLM 周围的代码，它运行智能体循环、调用工具并管理上下文。
+- **[AI 编排](https://outcomeschool.com/blog/ai-orchestration):** AI 编排是协调多个 AI 组件（例如 LLM、工具、数据源和智能体）共同完成复杂任务的过程。
+- **[循环工程](https://outcomeschool.com/blog/what-is-loop-engineering):** 循环工程是设计AI 智能体运行的重复循环的实践，以便智能体在任务上不断取得真正的进展，并在正确的时刻停止并得到正确的结果。
+- **[图工程](https://outcomeschool.com/blog/what-is-graph-engineering):** 图工程是将AI系统设计为图的实践，其中工作的每一步都是一个节点，从一个步骤到另一步骤的每条路径都是一条边。
+- **[函数调用](https://outcomeschool.com/blog/how-does-function-calling-work-in-llms):** 函数调用是一种让 LLM 使用外部工具、API 和函数来完成任务的方法。也称为工具调用。
+- **[MCP (模型上下文协议)](https://outcomeschool.com/blog/what-is-mcp-model-context-protocol):** MCP 是一种开放标准，定义了 AI 应用程序连接到外部工具和数据的一种通用方式。
+- **[Agent Skill](https://outcomeschool.com/blog/what-are-agent-skills):** 智能体 Skill 是一个指令文件夹，还可以选择脚本和参考文件，AI 智能体仅在任务实际需要时自行加载。
+- **[AI 智能体 Memory](https://outcomeschool.com/blog/ai-agent-memory):** AI 智能体 Memory 是一个让无状态 LLM 表现得像跨回合、会话和用户的记忆的系统。
+- **[Multi-智能体系统](https://outcomeschool.com/blog/multi-agent-systems):** 多智能体系统是一组 LLM 驱动的智能体，每个智能体都有自己的角色，共同执行一项共享任务。
+- **[AI SubAgent](https://outcomeschool.com/blog/ai-subagents):** AI 子智能体是一个较小的专用智能体，它在主智能体下工作以处理较大任务的特定部分。
+- **A2A（智能体2智能体协议）：** A2A 是一种开放标准，可供一个智能体与另一个智能体通信，即使它们是由不同的团队或供应商构建的。
+- **[语音 AI 智能体](https://outcomeschool.com/blog/design-a-real-time-voice-ai-agent)：** 一种能用语音与我们交流的软件程序，交互方式就像与人通电话。
+- **[LLM 护栏](https://outcomeschool.com/blog/how-do-llm-guardrails-work):** LLM 防护机制是位于 LLM 周围的安全检查，用于控制什么进出。
+- **[Prompt Injection](https://outcomeschool.com/blog/prompt-injection-in-llms):** 提示注入是一种攻击，其中有人将自己的指令放入 AI 应用程序发送给模型的文本中，以便模型遵循攻击者的指令而不是开发人员的指令。
+- **[LLM 水印](https://outcomeschool.com/blog/how-does-llm-watermarking-work):** LLM 水印是模型悄悄地留在其写入的文本中的隐藏信号，具有秘密密钥的检测器稍后可以找到该信号。
+- **[AI 智能体可观察性](https://outcomeschool.com/blog/ai-agent-observability):** AI 智能体可观测性是一步步记录和理解 AI 智能体内部所做的一切的做法，以便我们可以了解它为何会这样做。
+- **[LLM 评估](https://outcomeschool.com/blog/llm-evaluation):** LLM 评估是衡量大语言模型在我们期望它执行的任务上执行情况的过程。
+- **[LLM 作为判断者](https://outcomeschool.com/blog/llm-as-a-judge):** LLM 评审是一种我们使用大语言模型来评估另一个大语言模型的输出的技术。
+- **[连续批处理](https://outcomeschool.com/blog/continuous-batching-in-llms):** 连续批处理是一种运行批处理的方式，其中任何请求完成后，服务器立即将其替换为队列中等待的新请求。
+- **[推测解码](https://outcomeschool.com/blog/speculative-decoding):** 推测解码是一种技术，我们首先快速猜测接下来的几个token，然后要求大模型在一次运行中验证所有这些猜测。
+- **[模型量化](https://outcomeschool.com/blog/how-does-model-quantization-work):** 模型量化是以较低精度存储和计算模型数字的过程，因此模型占用的内存更少，运行速度更快。
+- **[知识蒸馏](https://outcomeschool.com/blog/how-does-knowledge-distillation-work):** 知识蒸馏训练一个小的学生模型来模仿一个大的教师模型。
+- **[Flash Attention](https://outcomeschool.com/blog/decoding-flash-attention):** FlashAttention 是相同的注意力，在 GPU 上以更智能的方式计算，而无需将完整的注意力矩阵写入减慢内存。
+- **[混合专家模型](https://outcomeschool.com/blog/mixture-of-experts):** 混合专家模型 = 许多小型专家网络 + 一个路由器，为每个 token 选择要使用的网络。
+- **[分组查询注意力](https://outcomeschool.com/blog/grouped-query-attention):** 分组查询注意力通过让多头组共享键和值，以小得多的 KV 缓存提供接近多头注意力的质量。
+- **[LoRA](https://outcomeschool.com/blog/lora-low-rank-adaptation-of-llms)：** LoRA 冻结原始模型权重，仅训练一小部分额外的适配器权重，这使得微调便宜得多。

@@ -1,0 +1,1663 @@
+{
+  "sourceRepository": "https://github.com/amitshekhariitbhu/ai-system-design",
+  "sourceCommit": "087b821f6506baa3b58aad642bf340c5c8f3a7c0",
+  "sourceSha256": "7497bb5636b948bb86193b3ca72b4b20db804ea820295488d1e80dbc270c65d1",
+  "translatedAt": "2026-11-12",
+  "translationUnitCount": 1772,
+  "chapters": [
+    {
+      "id": "00-introduction",
+      "title": "AI System Design",
+      "start": 0,
+      "end": 51,
+      "zhTitle": "原书介绍",
+      "unitCount": 30
+    },
+    {
+      "id": "01-about-this-ai-system-design-guide",
+      "title": "About This AI System Design Guide",
+      "start": 239,
+      "end": 255,
+      "zhTitle": "关于本指南",
+      "unitCount": 9
+    },
+    {
+      "id": "02-what-is-ai-system-design",
+      "title": "What is AI System Design?",
+      "start": 255,
+      "end": 267,
+      "zhTitle": "什么是 AI 系统设计",
+      "unitCount": 6
+    },
+    {
+      "id": "03-who-is-this-ai-system-design-guide-for",
+      "title": "Who is This AI System Design Guide For?",
+      "start": 267,
+      "end": 278,
+      "zhTitle": "适合哪些读者",
+      "unitCount": 8
+    },
+    {
+      "id": "04-what-will-we-learn-in-this-ai-system-design-guide",
+      "title": "What Will We Learn in This AI System Design Guide?",
+      "start": 278,
+      "end": 300,
+      "zhTitle": "你将学到什么",
+      "unitCount": 19
+    },
+    {
+      "id": "05-how-to-use-this-ai-system-design-guide",
+      "title": "How to Use This AI System Design Guide",
+      "start": 300,
+      "end": 307,
+      "zhTitle": "如何使用本指南",
+      "unitCount": 5
+    },
+    {
+      "id": "06-ai-system-design-learning-path",
+      "title": "AI System Design Learning Path",
+      "start": 307,
+      "end": 332,
+      "zhTitle": "学习路径",
+      "unitCount": 4
+    },
+    {
+      "id": "07-why-study-ai-system-design",
+      "title": "Why study AI System Design?",
+      "start": 332,
+      "end": 346,
+      "zhTitle": "为什么学习 AI 系统设计",
+      "unitCount": 7
+    },
+    {
+      "id": "08-how-is-ai-system-design-different-from-regular-system-design",
+      "title": "How is AI System Design different from regular System Design?",
+      "start": 346,
+      "end": 361,
+      "zhTitle": "与常规系统设计的区别",
+      "unitCount": 10
+    },
+    {
+      "id": "09-llm-recap",
+      "title": "LLM Recap",
+      "start": 361,
+      "end": 389,
+      "zhTitle": "LLM 基础回顾",
+      "unitCount": 12
+    },
+    {
+      "id": "10-the-big-picture",
+      "title": "The Big Picture",
+      "start": 389,
+      "end": 399,
+      "zhTitle": "整体架构",
+      "unitCount": 5
+    },
+    {
+      "id": "11-inference-server",
+      "title": "Inference Server",
+      "start": 399,
+      "end": 453,
+      "zhTitle": "推理服务器",
+      "unitCount": 31
+    },
+    {
+      "id": "12-ai-hardware-gpu-tpu-and-lpu",
+      "title": "AI Hardware: GPU, TPU, and LPU",
+      "start": 453,
+      "end": 486,
+      "zhTitle": "AI 硬件：GPU、TPU 与 LPU",
+      "unitCount": 23
+    },
+    {
+      "id": "13-tokens-latency-and-throughput",
+      "title": "Tokens, Latency, and Throughput",
+      "start": 486,
+      "end": 553,
+      "zhTitle": "token、延迟与吞吐量",
+      "unitCount": 34
+    },
+    {
+      "id": "14-prefill-and-decode-the-two-phases-of-llm-inference",
+      "title": "Prefill and Decode: The Two Phases of LLM Inference",
+      "start": 553,
+      "end": 680,
+      "zhTitle": "预填充与解码",
+      "unitCount": 57
+    },
+    {
+      "id": "15-scaling-ai-systems",
+      "title": "Scaling AI Systems",
+      "start": 680,
+      "end": 758,
+      "zhTitle": "AI 系统的扩展",
+      "unitCount": 29
+    },
+    {
+      "id": "16-auto-scaling-for-ai",
+      "title": "Auto Scaling for AI",
+      "start": 758,
+      "end": 770,
+      "zhTitle": "AI 自动扩缩容",
+      "unitCount": 6
+    },
+    {
+      "id": "17-back-of-the-envelope-estimation-for-ai",
+      "title": "Back-of-the-envelope Estimation for AI",
+      "start": 770,
+      "end": 813,
+      "zhTitle": "容量与成本估算",
+      "unitCount": 14
+    },
+    {
+      "id": "18-load-balancing-for-llm-servers",
+      "title": "Load Balancing for LLM Servers",
+      "start": 813,
+      "end": 839,
+      "zhTitle": "LLM 服务器的负载均衡",
+      "unitCount": 13
+    },
+    {
+      "id": "19-caching-in-ai",
+      "title": "Caching in AI",
+      "start": 839,
+      "end": 1005,
+      "zhTitle": "AI 系统的缓存",
+      "unitCount": 73
+    },
+    {
+      "id": "20-llm-routing-model-routing",
+      "title": "LLM Routing (Model Routing)",
+      "start": 1005,
+      "end": 1091,
+      "zhTitle": "LLM 路由（模型路由）",
+      "unitCount": 38
+    },
+    {
+      "id": "21-vector-database",
+      "title": "Vector Database",
+      "start": 1091,
+      "end": 1130,
+      "zhTitle": "向量数据库",
+      "unitCount": 23
+    },
+    {
+      "id": "22-rag-retrieval-augmented-generation",
+      "title": "RAG (Retrieval Augmented Generation)",
+      "start": 1130,
+      "end": 1527,
+      "zhTitle": "RAG（检索增强生成）",
+      "unitCount": 172
+    },
+    {
+      "id": "23-context-window-management",
+      "title": "Context Window Management",
+      "start": 1527,
+      "end": 1593,
+      "zhTitle": "上下文窗口管理",
+      "unitCount": 36
+    },
+    {
+      "id": "24-streaming-responses",
+      "title": "Streaming Responses",
+      "start": 1593,
+      "end": 1649,
+      "zhTitle": "流式响应",
+      "unitCount": 15
+    },
+    {
+      "id": "25-async-processing-for-long-ai-tasks",
+      "title": "Async Processing for Long AI Tasks",
+      "start": 1649,
+      "end": 1696,
+      "zhTitle": "长耗时 AI 任务的异步处理",
+      "unitCount": 15
+    },
+    {
+      "id": "26-message-queues-in-ai-systems",
+      "title": "Message Queues in AI Systems",
+      "start": 1696,
+      "end": 1712,
+      "zhTitle": "AI 系统的消息队列",
+      "unitCount": 9
+    },
+    {
+      "id": "27-rate-limiting-in-ai",
+      "title": "Rate Limiting in AI",
+      "start": 1712,
+      "end": 1740,
+      "zhTitle": "AI 系统的限流",
+      "unitCount": 14
+    },
+    {
+      "id": "28-ai-gateway",
+      "title": "AI Gateway",
+      "start": 1740,
+      "end": 1780,
+      "zhTitle": "AI 网关",
+      "unitCount": 21
+    },
+    {
+      "id": "29-embeddings-pipeline",
+      "title": "Embeddings Pipeline",
+      "start": 1780,
+      "end": 1832,
+      "zhTitle": "嵌入向量流水线",
+      "unitCount": 23
+    },
+    {
+      "id": "30-ai-agents-and-agentic-systems",
+      "title": "AI Agents and Agentic Systems",
+      "start": 1832,
+      "end": 2062,
+      "zhTitle": "AI 智能体与智能体系统",
+      "unitCount": 86
+    },
+    {
+      "id": "31-tool-calling",
+      "title": "Tool Calling",
+      "start": 2062,
+      "end": 2101,
+      "zhTitle": "工具调用",
+      "unitCount": 9
+    },
+    {
+      "id": "32-model-context-protocol-mcp",
+      "title": "Model Context Protocol (MCP)",
+      "start": 2101,
+      "end": 2161,
+      "zhTitle": "模型上下文协议（MCP）",
+      "unitCount": 26
+    },
+    {
+      "id": "33-agent-skills",
+      "title": "Agent Skills",
+      "start": 2161,
+      "end": 2193,
+      "zhTitle": "智能体技能（Agent Skills）",
+      "unitCount": 15
+    },
+    {
+      "id": "34-structured-output",
+      "title": "Structured Output",
+      "start": 2193,
+      "end": 2222,
+      "zhTitle": "结构化输出",
+      "unitCount": 11
+    },
+    {
+      "id": "35-memory-for-ai-agents",
+      "title": "Memory for AI Agents",
+      "start": 2222,
+      "end": 2365,
+      "zhTitle": "AI 智能体的记忆",
+      "unitCount": 46
+    },
+    {
+      "id": "36-multi-agent-systems",
+      "title": "Multi-Agent Systems",
+      "start": 2365,
+      "end": 2564,
+      "zhTitle": "多智能体系统",
+      "unitCount": 86
+    },
+    {
+      "id": "37-multimodal-systems",
+      "title": "Multimodal Systems",
+      "start": 2564,
+      "end": 2739,
+      "zhTitle": "多模态系统",
+      "unitCount": 92
+    },
+    {
+      "id": "38-guardrails-and-safety",
+      "title": "Guardrails and Safety",
+      "start": 2739,
+      "end": 2891,
+      "zhTitle": "防护机制与安全",
+      "unitCount": 68
+    },
+    {
+      "id": "39-data-privacy-and-compliance",
+      "title": "Data Privacy and Compliance",
+      "start": 2891,
+      "end": 2937,
+      "zhTitle": "数据隐私与合规",
+      "unitCount": 26
+    },
+    {
+      "id": "40-observability-in-ai-systems",
+      "title": "Observability in AI Systems",
+      "start": 2937,
+      "end": 2968,
+      "zhTitle": "AI 系统的可观测性",
+      "unitCount": 19
+    },
+    {
+      "id": "41-evaluation-pipeline",
+      "title": "Evaluation Pipeline",
+      "start": 2968,
+      "end": 3041,
+      "zhTitle": "评估流水线",
+      "unitCount": 46
+    },
+    {
+      "id": "42-prompt-management",
+      "title": "Prompt Management",
+      "start": 3041,
+      "end": 3091,
+      "zhTitle": "提示词管理",
+      "unitCount": 21
+    },
+    {
+      "id": "43-cost-optimization",
+      "title": "Cost Optimization",
+      "start": 3091,
+      "end": 3129,
+      "zhTitle": "成本优化",
+      "unitCount": 19
+    },
+    {
+      "id": "44-multi-tenancy",
+      "title": "Multi-Tenancy",
+      "start": 3129,
+      "end": 3145,
+      "zhTitle": "多租户",
+      "unitCount": 10
+    },
+    {
+      "id": "45-fine-tuning-infrastructure",
+      "title": "Fine-Tuning Infrastructure",
+      "start": 3145,
+      "end": 3183,
+      "zhTitle": "微调基础设施",
+      "unitCount": 19
+    },
+    {
+      "id": "46-inference-optimization",
+      "title": "Inference Optimization",
+      "start": 3183,
+      "end": 3434,
+      "zhTitle": "推理优化",
+      "unitCount": 92
+    },
+    {
+      "id": "47-fault-tolerance",
+      "title": "Fault Tolerance",
+      "start": 3434,
+      "end": 3470,
+      "zhTitle": "容错",
+      "unitCount": 20
+    },
+    {
+      "id": "48-how-to-solve-any-ai-system-design-problem",
+      "title": "How to Solve Any AI System Design Problem",
+      "start": 3470,
+      "end": 3688,
+      "zhTitle": "如何解决 AI 系统设计问题",
+      "unitCount": 124
+    },
+    {
+      "id": "49-real-world-ai-system-case-studies",
+      "title": "Real-World AI System Case Studies",
+      "start": 3688,
+      "end": 3797,
+      "zhTitle": "真实系统案例",
+      "unitCount": 28
+    },
+    {
+      "id": "50-ai-system-design-interview-questions",
+      "title": "AI System Design Interview Questions",
+      "start": 3797,
+      "end": 3816,
+      "zhTitle": "AI 系统设计面试题",
+      "unitCount": 15
+    },
+    {
+      "id": "51-quick-summary",
+      "title": "Quick Summary",
+      "start": 3816,
+      "end": 3857,
+      "zhTitle": "快速总结",
+      "unitCount": 37
+    },
+    {
+      "id": "52-ai-system-design-key-concepts-glossary",
+      "title": "AI System Design Key Concepts Glossary",
+      "start": 3857,
+      "end": 3926,
+      "zhTitle": "关键概念术语表",
+      "unitCount": 67
+    },
+    {
+      "id": "53-ai-system-design-faqs",
+      "title": "AI System Design FAQs",
+      "start": 3926,
+      "end": 3984,
+      "zhTitle": "常见问题",
+      "unitCount": 28
+    },
+    {
+      "id": "54-license",
+      "title": "License",
+      "start": 3984,
+      "end": 4001,
+      "zhTitle": "许可协议",
+      "unitCount": 1
+    }
+  ],
+  "headings": [
+    {
+      "line": 4,
+      "level": 1,
+      "title": "AI System Design",
+      "anchor": "ai-system-design"
+    },
+    {
+      "line": 26,
+      "level": 3,
+      "title": "Prepared and maintained by the **Founder** of [Outcome School](https://outcomeschool.com): Amit Shekhar",
+      "anchor": "prepared-and-maintained-by-the-founder-of-outcome-school-amit-shekhar"
+    },
+    {
+      "line": 28,
+      "level": 3,
+      "title": "Follow Amit Shekhar",
+      "anchor": "follow-amit-shekhar"
+    },
+    {
+      "line": 34,
+      "level": 3,
+      "title": "Follow Outcome School",
+      "anchor": "follow-outcome-school"
+    },
+    {
+      "line": 41,
+      "level": 2,
+      "title": "I teach at Outcome School",
+      "anchor": "i-teach-at-outcome-school"
+    },
+    {
+      "line": 51,
+      "level": 2,
+      "title": "Table of Contents",
+      "anchor": "table-of-contents"
+    },
+    {
+      "line": 239,
+      "level": 2,
+      "title": "About This AI System Design Guide",
+      "anchor": "about-this-ai-system-design-guide"
+    },
+    {
+      "line": 255,
+      "level": 2,
+      "title": "What is AI System Design?",
+      "anchor": "what-is-ai-system-design"
+    },
+    {
+      "line": 267,
+      "level": 2,
+      "title": "Who is This AI System Design Guide For?",
+      "anchor": "who-is-this-ai-system-design-guide-for"
+    },
+    {
+      "line": 278,
+      "level": 2,
+      "title": "What Will We Learn in This AI System Design Guide?",
+      "anchor": "what-will-we-learn-in-this-ai-system-design-guide"
+    },
+    {
+      "line": 300,
+      "level": 2,
+      "title": "How to Use This AI System Design Guide",
+      "anchor": "how-to-use-this-ai-system-design-guide"
+    },
+    {
+      "line": 307,
+      "level": 2,
+      "title": "AI System Design Learning Path",
+      "anchor": "ai-system-design-learning-path"
+    },
+    {
+      "line": 332,
+      "level": 2,
+      "title": "Why study AI System Design?",
+      "anchor": "why-study-ai-system-design"
+    },
+    {
+      "line": 346,
+      "level": 2,
+      "title": "How is AI System Design different from regular System Design?",
+      "anchor": "how-is-ai-system-design-different-from-regular-system-design"
+    },
+    {
+      "line": 361,
+      "level": 2,
+      "title": "LLM Recap",
+      "anchor": "llm-recap"
+    },
+    {
+      "line": 389,
+      "level": 2,
+      "title": "The Big Picture",
+      "anchor": "the-big-picture"
+    },
+    {
+      "line": 399,
+      "level": 2,
+      "title": "Inference Server",
+      "anchor": "inference-server"
+    },
+    {
+      "line": 434,
+      "level": 3,
+      "title": "Choosing an Inference Engine",
+      "anchor": "choosing-an-inference-engine"
+    },
+    {
+      "line": 453,
+      "level": 2,
+      "title": "AI Hardware: GPU, TPU, and LPU",
+      "anchor": "ai-hardware-gpu-tpu-and-lpu"
+    },
+    {
+      "line": 486,
+      "level": 2,
+      "title": "Tokens, Latency, and Throughput",
+      "anchor": "tokens-latency-and-throughput"
+    },
+    {
+      "line": 492,
+      "level": 3,
+      "title": "Time to First Token (TTFT)",
+      "anchor": "time-to-first-token-ttft"
+    },
+    {
+      "line": 500,
+      "level": 3,
+      "title": "Tokens per Second (TPS)",
+      "anchor": "tokens-per-second-tps"
+    },
+    {
+      "line": 510,
+      "level": 3,
+      "title": "Throughput",
+      "anchor": "throughput"
+    },
+    {
+      "line": 524,
+      "level": 3,
+      "title": "Cost per Token",
+      "anchor": "cost-per-token"
+    },
+    {
+      "line": 553,
+      "level": 2,
+      "title": "Prefill and Decode: The Two Phases of LLM Inference",
+      "anchor": "prefill-and-decode-the-two-phases-of-llm-inference"
+    },
+    {
+      "line": 564,
+      "level": 3,
+      "title": "Prefill",
+      "anchor": "prefill"
+    },
+    {
+      "line": 576,
+      "level": 3,
+      "title": "Decode",
+      "anchor": "decode"
+    },
+    {
+      "line": 603,
+      "level": 3,
+      "title": "Chunked Prefill",
+      "anchor": "chunked-prefill"
+    },
+    {
+      "line": 624,
+      "level": 3,
+      "title": "Prefill-Decode Disaggregation",
+      "anchor": "prefill-decode-disaggregation"
+    },
+    {
+      "line": 680,
+      "level": 2,
+      "title": "Scaling AI Systems",
+      "anchor": "scaling-ai-systems"
+    },
+    {
+      "line": 690,
+      "level": 3,
+      "title": "Vertical Scaling",
+      "anchor": "vertical-scaling"
+    },
+    {
+      "line": 698,
+      "level": 3,
+      "title": "Horizontal Scaling",
+      "anchor": "horizontal-scaling"
+    },
+    {
+      "line": 706,
+      "level": 3,
+      "title": "Tensor Parallelism",
+      "anchor": "tensor-parallelism"
+    },
+    {
+      "line": 714,
+      "level": 3,
+      "title": "Pipeline Parallelism",
+      "anchor": "pipeline-parallelism"
+    },
+    {
+      "line": 749,
+      "level": 3,
+      "title": "How to choose",
+      "anchor": "how-to-choose"
+    },
+    {
+      "line": 758,
+      "level": 2,
+      "title": "Auto Scaling for AI",
+      "anchor": "auto-scaling-for-ai"
+    },
+    {
+      "line": 770,
+      "level": 2,
+      "title": "Back-of-the-envelope Estimation for AI",
+      "anchor": "back-of-the-envelope-estimation-for-ai"
+    },
+    {
+      "line": 780,
+      "level": 3,
+      "title": "Token Estimation",
+      "anchor": "token-estimation"
+    },
+    {
+      "line": 788,
+      "level": 3,
+      "title": "GPU Estimation",
+      "anchor": "gpu-estimation"
+    },
+    {
+      "line": 801,
+      "level": 3,
+      "title": "Cost Estimation",
+      "anchor": "cost-estimation"
+    },
+    {
+      "line": 813,
+      "level": 2,
+      "title": "Load Balancing for LLM Servers",
+      "anchor": "load-balancing-for-llm-servers"
+    },
+    {
+      "line": 823,
+      "level": 3,
+      "title": "Least Outstanding Tokens",
+      "anchor": "least-outstanding-tokens"
+    },
+    {
+      "line": 827,
+      "level": 3,
+      "title": "Prefix-Aware Routing",
+      "anchor": "prefix-aware-routing"
+    },
+    {
+      "line": 833,
+      "level": 3,
+      "title": "Sticky Sessions",
+      "anchor": "sticky-sessions"
+    },
+    {
+      "line": 839,
+      "level": 2,
+      "title": "Caching in AI",
+      "anchor": "caching-in-ai"
+    },
+    {
+      "line": 871,
+      "level": 3,
+      "title": "KV Cache",
+      "anchor": "kv-cache"
+    },
+    {
+      "line": 903,
+      "level": 3,
+      "title": "KV Cache Compression",
+      "anchor": "kv-cache-compression"
+    },
+    {
+      "line": 946,
+      "level": 3,
+      "title": "Prompt Cache",
+      "anchor": "prompt-cache"
+    },
+    {
+      "line": 962,
+      "level": 3,
+      "title": "Semantic Cache",
+      "anchor": "semantic-cache"
+    },
+    {
+      "line": 988,
+      "level": 3,
+      "title": "Embedding Cache",
+      "anchor": "embedding-cache"
+    },
+    {
+      "line": 1005,
+      "level": 2,
+      "title": "LLM Routing (Model Routing)",
+      "anchor": "llm-routing-model-routing"
+    },
+    {
+      "line": 1091,
+      "level": 2,
+      "title": "Vector Database",
+      "anchor": "vector-database"
+    },
+    {
+      "line": 1112,
+      "level": 3,
+      "title": "Vector Index Types",
+      "anchor": "vector-index-types"
+    },
+    {
+      "line": 1130,
+      "level": 2,
+      "title": "RAG (Retrieval Augmented Generation)",
+      "anchor": "rag-retrieval-augmented-generation"
+    },
+    {
+      "line": 1186,
+      "level": 3,
+      "title": "Document Parsing and Ingestion",
+      "anchor": "document-parsing-and-ingestion"
+    },
+    {
+      "line": 1207,
+      "level": 3,
+      "title": "Chunking Strategies",
+      "anchor": "chunking-strategies"
+    },
+    {
+      "line": 1233,
+      "level": 3,
+      "title": "Hybrid Search",
+      "anchor": "hybrid-search"
+    },
+    {
+      "line": 1245,
+      "level": 3,
+      "title": "Query Transformation with HyDE",
+      "anchor": "query-transformation-with-hyde"
+    },
+    {
+      "line": 1272,
+      "level": 3,
+      "title": "Reranking",
+      "anchor": "reranking"
+    },
+    {
+      "line": 1309,
+      "level": 3,
+      "title": "ColBERT and Late Interaction",
+      "anchor": "colbert-and-late-interaction"
+    },
+    {
+      "line": 1340,
+      "level": 3,
+      "title": "Agentic RAG",
+      "anchor": "agentic-rag"
+    },
+    {
+      "line": 1418,
+      "level": 3,
+      "title": "GraphRAG",
+      "anchor": "graphrag"
+    },
+    {
+      "line": 1490,
+      "level": 3,
+      "title": "Vectorless RAG",
+      "anchor": "vectorless-rag"
+    },
+    {
+      "line": 1527,
+      "level": 2,
+      "title": "Context Window Management",
+      "anchor": "context-window-management"
+    },
+    {
+      "line": 1539,
+      "level": 3,
+      "title": "Context Rot, Lost in the Middle, and RoPE Decay",
+      "anchor": "context-rot-lost-in-the-middle-and-rope-decay"
+    },
+    {
+      "line": 1551,
+      "level": 3,
+      "title": "Context Engineering",
+      "anchor": "context-engineering"
+    },
+    {
+      "line": 1569,
+      "level": 3,
+      "title": "Truncation",
+      "anchor": "truncation"
+    },
+    {
+      "line": 1573,
+      "level": 3,
+      "title": "Summarization",
+      "anchor": "summarization"
+    },
+    {
+      "line": 1577,
+      "level": 3,
+      "title": "Sliding Window",
+      "anchor": "sliding-window"
+    },
+    {
+      "line": 1581,
+      "level": 3,
+      "title": "Compaction",
+      "anchor": "compaction"
+    },
+    {
+      "line": 1585,
+      "level": 3,
+      "title": "Hierarchical Memory",
+      "anchor": "hierarchical-memory"
+    },
+    {
+      "line": 1593,
+      "level": 2,
+      "title": "Streaming Responses",
+      "anchor": "streaming-responses"
+    },
+    {
+      "line": 1635,
+      "level": 3,
+      "title": "Server-Sent Events (SSE)",
+      "anchor": "server-sent-events-sse"
+    },
+    {
+      "line": 1639,
+      "level": 3,
+      "title": "WebSockets",
+      "anchor": "websockets"
+    },
+    {
+      "line": 1649,
+      "level": 2,
+      "title": "Async Processing for Long AI Tasks",
+      "anchor": "async-processing-for-long-ai-tasks"
+    },
+    {
+      "line": 1696,
+      "level": 2,
+      "title": "Message Queues in AI Systems",
+      "anchor": "message-queues-in-ai-systems"
+    },
+    {
+      "line": 1712,
+      "level": 2,
+      "title": "Rate Limiting in AI",
+      "anchor": "rate-limiting-in-ai"
+    },
+    {
+      "line": 1720,
+      "level": 3,
+      "title": "Tokens Per Minute (TPM)",
+      "anchor": "tokens-per-minute-tpm"
+    },
+    {
+      "line": 1724,
+      "level": 3,
+      "title": "Requests Per Minute (RPM)",
+      "anchor": "requests-per-minute-rpm"
+    },
+    {
+      "line": 1728,
+      "level": 3,
+      "title": "Concurrent Requests",
+      "anchor": "concurrent-requests"
+    },
+    {
+      "line": 1732,
+      "level": 3,
+      "title": "Cost-Based Rate Limiting",
+      "anchor": "cost-based-rate-limiting"
+    },
+    {
+      "line": 1740,
+      "level": 2,
+      "title": "AI Gateway",
+      "anchor": "ai-gateway"
+    },
+    {
+      "line": 1780,
+      "level": 2,
+      "title": "Embeddings Pipeline",
+      "anchor": "embeddings-pipeline"
+    },
+    {
+      "line": 1814,
+      "level": 3,
+      "title": "Choosing an Embedding Model",
+      "anchor": "choosing-an-embedding-model"
+    },
+    {
+      "line": 1824,
+      "level": 3,
+      "title": "Matryoshka Embeddings",
+      "anchor": "matryoshka-embeddings"
+    },
+    {
+      "line": 1832,
+      "level": 2,
+      "title": "AI Agents and Agentic Systems",
+      "anchor": "ai-agents-and-agentic-systems"
+    },
+    {
+      "line": 1844,
+      "level": 3,
+      "title": "The Five Core Parts",
+      "anchor": "the-five-core-parts"
+    },
+    {
+      "line": 1879,
+      "level": 3,
+      "title": "How an AI Agent Works End to End",
+      "anchor": "how-an-ai-agent-works-end-to-end"
+    },
+    {
+      "line": 1939,
+      "level": 3,
+      "title": "Types of AI Agents",
+      "anchor": "types-of-ai-agents"
+    },
+    {
+      "line": 1952,
+      "level": 3,
+      "title": "Computer Use and Browser Agents",
+      "anchor": "computer-use-and-browser-agents"
+    },
+    {
+      "line": 1992,
+      "level": 3,
+      "title": "Common Failure Modes",
+      "anchor": "common-failure-modes"
+    },
+    {
+      "line": 2004,
+      "level": 3,
+      "title": "AI Orchestration vs AI Agents",
+      "anchor": "ai-orchestration-vs-ai-agents"
+    },
+    {
+      "line": 2027,
+      "level": 3,
+      "title": "Loop Engineering",
+      "anchor": "loop-engineering"
+    },
+    {
+      "line": 2044,
+      "level": 3,
+      "title": "Graph Engineering",
+      "anchor": "graph-engineering"
+    },
+    {
+      "line": 2062,
+      "level": 2,
+      "title": "Tool Calling",
+      "anchor": "tool-calling"
+    },
+    {
+      "line": 2101,
+      "level": 2,
+      "title": "Model Context Protocol (MCP)",
+      "anchor": "model-context-protocol-mcp"
+    },
+    {
+      "line": 2113,
+      "level": 3,
+      "title": "How MCP works",
+      "anchor": "how-mcp-works"
+    },
+    {
+      "line": 2137,
+      "level": 3,
+      "title": "Why MCP matters for AI System Design",
+      "anchor": "why-mcp-matters-for-ai-system-design"
+    },
+    {
+      "line": 2146,
+      "level": 3,
+      "title": "When to use MCP",
+      "anchor": "when-to-use-mcp"
+    },
+    {
+      "line": 2152,
+      "level": 3,
+      "title": "When MCP is overkill",
+      "anchor": "when-mcp-is-overkill"
+    },
+    {
+      "line": 2161,
+      "level": 2,
+      "title": "Agent Skills",
+      "anchor": "agent-skills"
+    },
+    {
+      "line": 2193,
+      "level": 2,
+      "title": "Structured Output",
+      "anchor": "structured-output"
+    },
+    {
+      "line": 2222,
+      "level": 2,
+      "title": "Memory for AI Agents",
+      "anchor": "memory-for-ai-agents"
+    },
+    {
+      "line": 2228,
+      "level": 3,
+      "title": "The Memory Stack",
+      "anchor": "the-memory-stack"
+    },
+    {
+      "line": 2265,
+      "level": 3,
+      "title": "The Four Core Operations",
+      "anchor": "the-four-core-operations"
+    },
+    {
+      "line": 2281,
+      "level": 3,
+      "title": "How Memory Flows at Runtime",
+      "anchor": "how-memory-flows-at-runtime"
+    },
+    {
+      "line": 2341,
+      "level": 3,
+      "title": "What to Store and What Not to Store",
+      "anchor": "what-to-store-and-what-not-to-store"
+    },
+    {
+      "line": 2365,
+      "level": 2,
+      "title": "Multi-Agent Systems",
+      "anchor": "multi-agent-systems"
+    },
+    {
+      "line": 2377,
+      "level": 3,
+      "title": "The Three Pillars",
+      "anchor": "the-three-pillars"
+    },
+    {
+      "line": 2387,
+      "level": 3,
+      "title": "Common Agent Roles",
+      "anchor": "common-agent-roles"
+    },
+    {
+      "line": 2398,
+      "level": 3,
+      "title": "A Concrete Example: Customer Support",
+      "anchor": "a-concrete-example-customer-support"
+    },
+    {
+      "line": 2429,
+      "level": 3,
+      "title": "Coordination Patterns",
+      "anchor": "coordination-patterns"
+    },
+    {
+      "line": 2467,
+      "level": 3,
+      "title": "AI SubAgents",
+      "anchor": "ai-subagents"
+    },
+    {
+      "line": 2486,
+      "level": 3,
+      "title": "Trade-offs",
+      "anchor": "trade-offs"
+    },
+    {
+      "line": 2509,
+      "level": 3,
+      "title": "A2A (Agent2Agent Protocol)",
+      "anchor": "a2a-agent2agent-protocol"
+    },
+    {
+      "line": 2519,
+      "level": 3,
+      "title": "How A2A works",
+      "anchor": "how-a2a-works"
+    },
+    {
+      "line": 2536,
+      "level": 3,
+      "title": "How MCP and A2A fit together",
+      "anchor": "how-mcp-and-a2a-fit-together"
+    },
+    {
+      "line": 2564,
+      "level": 2,
+      "title": "Multimodal Systems",
+      "anchor": "multimodal-systems"
+    },
+    {
+      "line": 2577,
+      "level": 3,
+      "title": "Storage",
+      "anchor": "storage"
+    },
+    {
+      "line": 2581,
+      "level": 3,
+      "title": "Pre-processing Pipeline",
+      "anchor": "pre-processing-pipeline"
+    },
+    {
+      "line": 2589,
+      "level": 3,
+      "title": "Token Cost",
+      "anchor": "token-cost"
+    },
+    {
+      "line": 2593,
+      "level": 3,
+      "title": "Output Modalities",
+      "anchor": "output-modalities"
+    },
+    {
+      "line": 2597,
+      "level": 3,
+      "title": "Latency",
+      "anchor": "latency"
+    },
+    {
+      "line": 2601,
+      "level": 3,
+      "title": "Voice and Realtime APIs",
+      "anchor": "voice-and-realtime-apis"
+    },
+    {
+      "line": 2697,
+      "level": 3,
+      "title": "Edge AI and On-Device Inference",
+      "anchor": "edge-ai-and-on-device-inference"
+    },
+    {
+      "line": 2739,
+      "level": 2,
+      "title": "Guardrails and Safety",
+      "anchor": "guardrails-and-safety"
+    },
+    {
+      "line": 2771,
+      "level": 3,
+      "title": "Input Guardrails",
+      "anchor": "input-guardrails"
+    },
+    {
+      "line": 2781,
+      "level": 3,
+      "title": "Output Guardrails",
+      "anchor": "output-guardrails"
+    },
+    {
+      "line": 2796,
+      "level": 3,
+      "title": "Prompt Injection",
+      "anchor": "prompt-injection"
+    },
+    {
+      "line": 2851,
+      "level": 3,
+      "title": "AI Red Teaming",
+      "anchor": "ai-red-teaming"
+    },
+    {
+      "line": 2874,
+      "level": 3,
+      "title": "LLM Watermarking",
+      "anchor": "llm-watermarking"
+    },
+    {
+      "line": 2891,
+      "level": 2,
+      "title": "Data Privacy and Compliance",
+      "anchor": "data-privacy-and-compliance"
+    },
+    {
+      "line": 2900,
+      "level": 3,
+      "title": "PII Redaction",
+      "anchor": "pii-redaction"
+    },
+    {
+      "line": 2912,
+      "level": 3,
+      "title": "Data Residency",
+      "anchor": "data-residency"
+    },
+    {
+      "line": 2920,
+      "level": 3,
+      "title": "No-Train and BAA Clauses",
+      "anchor": "no-train-and-baa-clauses"
+    },
+    {
+      "line": 2927,
+      "level": 3,
+      "title": "Voice and Multimodal Privacy",
+      "anchor": "voice-and-multimodal-privacy"
+    },
+    {
+      "line": 2931,
+      "level": 3,
+      "title": "Audit Logs",
+      "anchor": "audit-logs"
+    },
+    {
+      "line": 2937,
+      "level": 2,
+      "title": "Observability in AI Systems",
+      "anchor": "observability-in-ai-systems"
+    },
+    {
+      "line": 2968,
+      "level": 2,
+      "title": "Evaluation Pipeline",
+      "anchor": "evaluation-pipeline"
+    },
+    {
+      "line": 2998,
+      "level": 3,
+      "title": "LLM as a Judge",
+      "anchor": "llm-as-a-judge"
+    },
+    {
+      "line": 3018,
+      "level": 3,
+      "title": "Evaluating AI Agents",
+      "anchor": "evaluating-ai-agents"
+    },
+    {
+      "line": 3041,
+      "level": 2,
+      "title": "Prompt Management",
+      "anchor": "prompt-management"
+    },
+    {
+      "line": 3063,
+      "level": 3,
+      "title": "Programmatic Prompting with DSPy",
+      "anchor": "programmatic-prompting-with-dspy"
+    },
+    {
+      "line": 3091,
+      "level": 2,
+      "title": "Cost Optimization",
+      "anchor": "cost-optimization"
+    },
+    {
+      "line": 3097,
+      "level": 3,
+      "title": "1. Use a cheaper model when possible",
+      "anchor": "1-use-a-cheaper-model-when-possible"
+    },
+    {
+      "line": 3101,
+      "level": 3,
+      "title": "2. Use prompt caching",
+      "anchor": "2-use-prompt-caching"
+    },
+    {
+      "line": 3105,
+      "level": 3,
+      "title": "3. Use semantic cache",
+      "anchor": "3-use-semantic-cache"
+    },
+    {
+      "line": 3109,
+      "level": 3,
+      "title": "4. Shorter outputs",
+      "anchor": "4-shorter-outputs"
+    },
+    {
+      "line": 3113,
+      "level": 3,
+      "title": "5. Self-host smaller models",
+      "anchor": "5-self-host-smaller-models"
+    },
+    {
+      "line": 3117,
+      "level": 3,
+      "title": "6. Batch inference",
+      "anchor": "6-batch-inference"
+    },
+    {
+      "line": 3121,
+      "level": 3,
+      "title": "7. Better retrieval (for RAG)",
+      "anchor": "7-better-retrieval-for-rag"
+    },
+    {
+      "line": 3129,
+      "level": 2,
+      "title": "Multi-Tenancy",
+      "anchor": "multi-tenancy"
+    },
+    {
+      "line": 3145,
+      "level": 2,
+      "title": "Fine-Tuning Infrastructure",
+      "anchor": "fine-tuning-infrastructure"
+    },
+    {
+      "line": 3155,
+      "level": 3,
+      "title": "Training Cluster",
+      "anchor": "training-cluster"
+    },
+    {
+      "line": 3159,
+      "level": 3,
+      "title": "Training Data Pipeline",
+      "anchor": "training-data-pipeline"
+    },
+    {
+      "line": 3163,
+      "level": 3,
+      "title": "Experiment Tracking",
+      "anchor": "experiment-tracking"
+    },
+    {
+      "line": 3167,
+      "level": 3,
+      "title": "Model Registry",
+      "anchor": "model-registry"
+    },
+    {
+      "line": 3171,
+      "level": 3,
+      "title": "Evaluation",
+      "anchor": "evaluation"
+    },
+    {
+      "line": 3183,
+      "level": 2,
+      "title": "Inference Optimization",
+      "anchor": "inference-optimization"
+    },
+    {
+      "line": 3201,
+      "level": 3,
+      "title": "Quantization",
+      "anchor": "quantization"
+    },
+    {
+      "line": 3211,
+      "level": 3,
+      "title": "Continuous Batching",
+      "anchor": "continuous-batching"
+    },
+    {
+      "line": 3242,
+      "level": 3,
+      "title": "Speculative Decoding",
+      "anchor": "speculative-decoding"
+    },
+    {
+      "line": 3283,
+      "level": 3,
+      "title": "Test-time Compute (Inference-time Scaling)",
+      "anchor": "test-time-compute-inference-time-scaling"
+    },
+    {
+      "line": 3331,
+      "level": 3,
+      "title": "Flash Attention",
+      "anchor": "flash-attention"
+    },
+    {
+      "line": 3357,
+      "level": 3,
+      "title": "Mixture of Experts (MoE)",
+      "anchor": "mixture-of-experts-moe"
+    },
+    {
+      "line": 3399,
+      "level": 3,
+      "title": "Model Distillation",
+      "anchor": "model-distillation"
+    },
+    {
+      "line": 3422,
+      "level": 3,
+      "title": "Grouped Query Attention (GQA)",
+      "anchor": "grouped-query-attention-gqa"
+    },
+    {
+      "line": 3434,
+      "level": 2,
+      "title": "Fault Tolerance",
+      "anchor": "fault-tolerance"
+    },
+    {
+      "line": 3446,
+      "level": 3,
+      "title": "Timeouts",
+      "anchor": "timeouts"
+    },
+    {
+      "line": 3450,
+      "level": 3,
+      "title": "Retries with Backoff",
+      "anchor": "retries-with-backoff"
+    },
+    {
+      "line": 3454,
+      "level": 3,
+      "title": "Fallback Models",
+      "anchor": "fallback-models"
+    },
+    {
+      "line": 3458,
+      "level": 3,
+      "title": "Graceful Degradation",
+      "anchor": "graceful-degradation"
+    },
+    {
+      "line": 3462,
+      "level": 3,
+      "title": "Output Validation",
+      "anchor": "output-validation"
+    },
+    {
+      "line": 3470,
+      "level": 2,
+      "title": "How to Solve Any AI System Design Problem",
+      "anchor": "how-to-solve-any-ai-system-design-problem"
+    },
+    {
+      "line": 3489,
+      "level": 3,
+      "title": "Step 1: Requirements",
+      "anchor": "step-1-requirements"
+    },
+    {
+      "line": 3526,
+      "level": 3,
+      "title": "Step 2: AI Objective",
+      "anchor": "step-2-ai-objective"
+    },
+    {
+      "line": 3539,
+      "level": 3,
+      "title": "Step 3: Data Preparation",
+      "anchor": "step-3-data-preparation"
+    },
+    {
+      "line": 3559,
+      "level": 3,
+      "title": "Step 4: Architecture Design",
+      "anchor": "step-4-architecture-design"
+    },
+    {
+      "line": 3593,
+      "level": 3,
+      "title": "Step 5: Model Selection and Prompting",
+      "anchor": "step-5-model-selection-and-prompting"
+    },
+    {
+      "line": 3628,
+      "level": 3,
+      "title": "Step 6: Evaluation",
+      "anchor": "step-6-evaluation"
+    },
+    {
+      "line": 3644,
+      "level": 3,
+      "title": "Step 7: Deployment and Serving",
+      "anchor": "step-7-deployment-and-serving"
+    },
+    {
+      "line": 3658,
+      "level": 3,
+      "title": "Step 8: Monitoring",
+      "anchor": "step-8-monitoring"
+    },
+    {
+      "line": 3688,
+      "level": 2,
+      "title": "Real-World AI System Case Studies",
+      "anchor": "real-world-ai-system-case-studies"
+    },
+    {
+      "line": 3692,
+      "level": 3,
+      "title": "Case Study 1: How Claude Code Works",
+      "anchor": "case-study-1-how-claude-code-works"
+    },
+    {
+      "line": 3737,
+      "level": 3,
+      "title": "Case Study 2: How Cursor Works",
+      "anchor": "case-study-2-how-cursor-works"
+    },
+    {
+      "line": 3752,
+      "level": 3,
+      "title": "Case Study 3: Design a Real-Time Voice AI Agent",
+      "anchor": "case-study-3-design-a-real-time-voice-ai-agent"
+    },
+    {
+      "line": 3797,
+      "level": 2,
+      "title": "AI System Design Interview Questions",
+      "anchor": "ai-system-design-interview-questions"
+    },
+    {
+      "line": 3816,
+      "level": 2,
+      "title": "Quick Summary",
+      "anchor": "quick-summary"
+    },
+    {
+      "line": 3857,
+      "level": 2,
+      "title": "AI System Design Key Concepts Glossary",
+      "anchor": "ai-system-design-key-concepts-glossary"
+    },
+    {
+      "line": 3926,
+      "level": 2,
+      "title": "AI System Design FAQs",
+      "anchor": "ai-system-design-faqs"
+    },
+    {
+      "line": 3928,
+      "level": 3,
+      "title": "What is AI System Design?",
+      "anchor": "what-is-ai-system-design-1"
+    },
+    {
+      "line": 3932,
+      "level": 3,
+      "title": "How is AI System Design different from regular System Design?",
+      "anchor": "how-is-ai-system-design-different-from-regular-system-design-1"
+    },
+    {
+      "line": 3936,
+      "level": 3,
+      "title": "What are the most important topics for an AI System Design interview?",
+      "anchor": "what-are-the-most-important-topics-for-an-ai-system-design-interview"
+    },
+    {
+      "line": 3940,
+      "level": 3,
+      "title": "How do I answer an AI System Design interview question?",
+      "anchor": "how-do-i-answer-an-ai-system-design-interview-question"
+    },
+    {
+      "line": 3944,
+      "level": 3,
+      "title": "When should I use RAG and when should I use fine-tuning?",
+      "anchor": "when-should-i-use-rag-and-when-should-i-use-fine-tuning"
+    },
+    {
+      "line": 3948,
+      "level": 3,
+      "title": "When should I use an AI Agent and when should I use a fixed workflow?",
+      "anchor": "when-should-i-use-an-ai-agent-and-when-should-i-use-a-fixed-workflow"
+    },
+    {
+      "line": 3952,
+      "level": 3,
+      "title": "How do we reduce the cost of an LLM application?",
+      "anchor": "how-do-we-reduce-the-cost-of-an-llm-application"
+    },
+    {
+      "line": 3956,
+      "level": 3,
+      "title": "How do we reduce the latency of an LLM application?",
+      "anchor": "how-do-we-reduce-the-latency-of-an-llm-application"
+    },
+    {
+      "line": 3960,
+      "level": 3,
+      "title": "What is the difference between MCP, A2A, and Agent Skills?",
+      "anchor": "what-is-the-difference-between-mcp-a2a-and-agent-skills"
+    },
+    {
+      "line": 3964,
+      "level": 3,
+      "title": "How do we protect an AI Agent from prompt injection?",
+      "anchor": "how-do-we-protect-an-ai-agent-from-prompt-injection"
+    },
+    {
+      "line": 3968,
+      "level": 3,
+      "title": "Who created this AI System Design guide?",
+      "anchor": "who-created-this-ai-system-design-guide"
+    },
+    {
+      "line": 3984,
+      "level": 2,
+      "title": "License",
+      "anchor": "license"
+    }
+  ]
+}
